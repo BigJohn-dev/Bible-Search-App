@@ -1,22 +1,16 @@
 import xml.etree.ElementTree as ET
 
-
 class BibleLoader:
-    """
-    Loads and parses a Bible XML file (Zefania format)
-    using xml.etree.ElementTree for maximum stability.
-    """
+    """Loads and parses a Bible XML file (Zefania format)."""
 
     def __init__(self, filename):
         self.filename = filename
         self.verses = []
 
     def load(self):
-        """Parse all verses safely."""
         print("📖 Loading Bible... please wait.")
 
         try:
-            # Parse the entire XML tree (safe for modern 64-bit Python)
             tree = ET.parse(self.filename)
             root = tree.getroot()
 
@@ -34,7 +28,8 @@ class BibleLoader:
                             "book": book_name,
                             "chapter": chapter_num,
                             "verse": verse_num,
-                            "text": text
+                            "text": text,
+                            "text_lower": text.lower()
                         })
 
             print(f"✅ Loaded {len(self.verses)} verses from {self.filename}")
@@ -47,5 +42,4 @@ class BibleLoader:
             print(f"❌ Unexpected error: {e}")
 
     def get_verses(self):
-        """Return all parsed verses."""
         return self.verses
