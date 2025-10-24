@@ -3,31 +3,22 @@ from bible_loader import BibleLoader
 from bible_searcher import BibleSearcher
 
 class BibleAPI:
-    """Flask-based REST API for KJV Bible searching."""
 
     def __init__(self, bible_file):
         self.app = Flask(__name__)
 
-        # Load Bible once
         self.bible_loader = BibleLoader(bible_file)
         self.bible_loader.load()
 
-        # Initialize searcher
         self.searcher = BibleSearcher(self.bible_loader.get_verses())
 
-        # Register routes
         self.setup_routes()
 
     def setup_routes(self):
         @self.app.route("/")
         def home():
             return jsonify({
-                "message": "📖 Welcome to the Bible Search API (KJV)",
-                "usage": {
-                    "text_search": "/search?q=for+God+so+loved+the+world",
-                    "reference_search": "/search?q=John+3:16",
-                    "optional": "Add &fuzzy=true for flexible search"
-                }
+                "message": "Welcome to the Bible Search (KJV)",
             })
 
         @self.app.route("/search", methods=["GET"])
@@ -42,14 +33,9 @@ class BibleAPI:
 
             return jsonify({
                 "query": query,
-                "fuzzy_search": fuzzy,
                 "count": len(results),
                 "results": results
             })
-
-        @self.app.route("/favicon.ico")
-        def favicon():
-            return "", 204
 
     def run(self):
         self.app.run(debug=False)

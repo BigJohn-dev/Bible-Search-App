@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 
 class BibleLoader:
-    """Loads and parses a Bible XML file (Zefania format)."""
 
     def __init__(self, filename):
         self.filename = filename
