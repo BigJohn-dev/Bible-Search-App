@@ -1,0 +1,33 @@
+.verse-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.verse-card {
+    width: 80%;
+    background: white;
+    border-left: 5px solid #1565c0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.verse-card h4 {
+    margin: 0;
+    color: #0d47a1;
+}
+
+.verse-card p {
+    margin-top: 5px;
+    color: #333;
+}
+
+.no-results,
+.loading {
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+}

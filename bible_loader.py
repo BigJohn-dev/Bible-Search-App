@@ -7,7 +7,7 @@ class BibleLoader:
         self.verses = []
 
     def load(self):
-        print("📖 Loading Bible... please wait.")
+        print("Loading Bible... please wait.")
 
         try:
             tree = ET.parse(self.filename)
@@ -31,14 +31,14 @@ class BibleLoader:
                             "text_lower": text.lower()
                         })
 
-            print(f"✅ Loaded {len(self.verses)} verses from {self.filename}")
+            print(f"Loaded {len(self.verses)} verses from {self.filename}")
 
         except FileNotFoundError:
-            print(f"❌ File not found: {self.filename}")
+            print(f"File not found: {self.filename}")
         except ET.ParseError as e:
-            print(f"❌ XML parsing error: {e}")
+            print(f"XML parsing error: {e}")
         except Exception as e:
-            print(f"❌ Unexpected error: {e}")
+            print(f"Unexpected error: {e}")
 
     def get_verses(self):
         return self.verses

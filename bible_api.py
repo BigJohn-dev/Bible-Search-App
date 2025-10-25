@@ -27,7 +27,7 @@ class BibleAPI:
             fuzzy = request.args.get("fuzzy", "false").lower() == "true"
 
             if not query:
-                return jsonify({"error": "Please provide a search query, e.g. /search?q=love"}), 400
+                return jsonify({"error": "Please provide a search query"}), 400
 
             results = self.searcher.search(query, use_fuzzy=fuzzy)
 

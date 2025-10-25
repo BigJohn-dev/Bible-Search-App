@@ -1,0 +1,11 @@
+.App {
+  font-family: "Segoe UI", sans-serif;
+  background: #f7f9fc;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #1a237e;
+}
